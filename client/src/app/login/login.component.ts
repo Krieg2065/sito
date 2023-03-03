@@ -14,7 +14,7 @@ import { environment } from 'src/environments/environment';
 export class LoginComponent implements OnInit {
   email: string = '';
   passw: string = '';
-  url: string = environment.baseUrlServer;
+  url: string = environment.baseUrlServer + "login/data";
   form!: FormGroup;
   data!: any;
   constructor(

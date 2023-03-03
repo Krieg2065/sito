@@ -1,11 +1,12 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { environment } from 'src/environments/environment';
    
 @Injectable({
   providedIn: 'root'
 })
 export class PostService {
-  private url = 'https://jsonplaceholder.typicode.com/posts';
+  private url = environment.baseUrlServer + 'all';
     
   constructor(private httpClient: HttpClient) { }
    

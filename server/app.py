@@ -20,13 +20,11 @@ CORS(app)
 
 @app.route('/all')
 def getall():
-
-    data = request.args.get("")
+    q='SELECT * FROM scuola.verifica2'
     df = pd.read_sql(q, conn)
 
-    res = list(df.to_dict("index").values())    # list(df.to_dict("index").values())
-
-    return jsonify(res)
+    df = df.drop("testo_pdf", axis=1)
+    return df.to_dict('records')
 
 
 ## Register 
@@ -76,7 +74,7 @@ def dati_login():
   p = {"email": f"{email}","password": f"{password}"}
   cursor.execute(q, p)
   res = cursor.fetchall()
-
+  print(res)
   if len(res) > 0:
     if res[0]['password'] == password:
       data['data'] = res[0]

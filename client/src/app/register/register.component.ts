@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit {
-  url: string = environment.baseUrlServer;
+  url: string = environment.baseUrlServer + "register/data";
   form!: FormGroup;
   errorMessage!: string;
 
