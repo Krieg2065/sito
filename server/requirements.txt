@@ -1,0 +1,5 @@
+flask
+pandas
+pymssql
+flask_cors
+python-dotenv
