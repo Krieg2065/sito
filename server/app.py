@@ -35,9 +35,9 @@ def dati_registrazione():
   email = request.args.get("email")
   password = request.args.get("password")
 
-  Cq = "SELECT * FROM docente WHERE username = %(username)s OR email = %(e)s"
+  Cq = "SELECT * FROM docente WHERE username = %(username)s OR userEmail = %(email)s"
   Ccursor = conn.cursor(as_dict=True)
-  Cp = {"username": f"{username}","e": f"{email}"}
+  Cp = {"username": f"{username}","email": f"{email}"}
   Ccursor.execute(Cq, Cp)
   Cdata = Ccursor.fetchall()
 
@@ -45,7 +45,7 @@ def dati_registrazione():
 
   if len(Cdata) < 1:
     print(request.args)
-    q = 'INSERT INTO docente (username, email, password) VALUES (%(username)s, %(email)s, %(password)s)'
+    q = 'INSERT INTO docente (username, userEmail, userPass) VALUES (%(username)s, %(email)s, %(password)s)'
     cursor = conn.cursor(as_dict=True)
     p = {"username": f"{username}","email": f"{email}","password": f"{password}"}
 
@@ -76,7 +76,7 @@ def dati_login():
   res = cursor.fetchall()
   print(res)
   if len(res) > 0:
-    if res[0]['password'] == password:
+    if res[0]['userPass'] == password:
       data['data'] = res[0]
     else:
       data['errore'] = "Password sbagliata"

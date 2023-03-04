@@ -25,7 +25,7 @@ export class LoginComponent implements OnInit {
   ) { }
 
   ngOnInit(): void {
-    if(this.storage.getData('id') != null) this.router.navigate(['home']);
+    if(this.storage.getData('username') != null) this.router.navigate(['home']);
 
     this.form = this.fb.group({
       email: ["", [Validators.required]],
@@ -51,10 +51,9 @@ export class LoginComponent implements OnInit {
       } else {
         this.data = data.data
         this.storage.saveData('email', data.data.email);
-        this.storage.saveData('id', data.data.id.toString());
         this.storage.saveData('username', data.data.username);
 
-        this.router.navigate(['home']);
+        this.router.navigate(['']);
       }
     });
   }
