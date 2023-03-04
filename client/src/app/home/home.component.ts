@@ -16,7 +16,7 @@ export class HomeComponent {
   ngOnInit() {
     if (this.storage.getData('username') == null) {
       console.log("Devi essere loggato");
-      this.router.navigate(['']);
+      this.router.navigate(['login']);
     } else {
       this.service.getPosts()
         .subscribe(response => {
