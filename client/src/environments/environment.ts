@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  baseUrlServer: 'https://5000-krieg2065-sito-6yt7nk1sonn.ws-eu89.gitpod.io/'
+  baseUrlServer : ('/api/')
 };
 
 /*
